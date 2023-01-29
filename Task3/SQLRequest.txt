@@ -1,0 +1,2 @@
+SELECT * FROM TestDB
+WHERE nameOfProduct= 'Имя продукта' AND hint ISNULL OR category = 'Имя категории';
