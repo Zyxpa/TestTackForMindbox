@@ -1,4 +1,4 @@
-﻿using System.Reflection.Metadata;
+﻿using System;
 
 namespace Task2
 {
@@ -10,6 +10,12 @@ namespace Task2
 
         public Triangle(float side1, float side2, float side3)
         {
+               this.longestSide = side1;
+            this.otherSide1 = side2;
+            this.otherSide2 = side3;
+
+            SortSides();
+
             if (side1 < 0 || side2 < 0 || side3 < 0)
                 throw new Exception("Стороны заданы некорректно(одна или больше сторон меньше нуля)");
 
@@ -18,11 +24,7 @@ namespace Task2
             if (semi_perimeter - longestSide < IFigure.Epsilon)
                 throw new Exception("Стороны заданы некорректно(Треугольник вырожденный)");
 
-            this.longestSide = side1;
-            this.otherSide1 = side2;
-            this.otherSide2 = side3;
 
-            SortSides();
         }
 
         public float GetArea()
